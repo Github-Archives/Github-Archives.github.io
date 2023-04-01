@@ -1,20 +1,19 @@
-import { useState, useEffect } from 'react'
-import './App.css'
+import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('https://api.quotable.io/random')
-      .then(response => response.json())
-      .then(data => setData([data]));
+    fetch("https://api.quotable.io/random")
+      .then((response) => response.json())
+      .then((data) => setData([data]));
   }, []);
-  
 
   return (
     <div>
       {data.length > 0 ? (
-        data.map(item => (
+        data.map((item) => (
           <div key={item._id}>
             <h2>{item.author}</h2>
             <p>{item.content}</p>
@@ -24,7 +23,7 @@ function App() {
         <p>Loading...</p>
       )}
     </div>
-  );  
+  );
 }
 
-export default App
+export default App;
